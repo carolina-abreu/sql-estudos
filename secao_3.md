@@ -39,16 +39,28 @@
         - number: números com casa decimal
         - single, double, real: também usado para casas decimais
         - date: usado para datas
-        - boolean: para tipo de dados booleanos
-        - chave primária: campo existente na tabela que torna o registro único.
+        - boolean: para tipo de dados booleanos, verdadeiro ou falso, sim ou não
+        - chave primária: campo existente na tabela que torna o registro único
+        - constraint: regra que impede mais de um dado com o mesmo nome, no banco de dados.
 
     ## Aula 15 - FIQUE ATENTO! Tabelas, campos e registros
+        - banco de dados: conjunto de dados organizados que permite busca e manutenção das informações
+        - tabelas: possuem campos, que precisam de um nome e um tipo de dados
+        - registros: linhas nas tabelas
+        - chave primária: torna o registro único, normalmente é o primeiro campo
+        - .help, .exit, .tables, .schema: comando sqlite3
+        - ddl: data definition language
+        - dml: data manipulation language.
 
     ## Aula 16 - Excluindo uma tabela
+        - sqlite> drop table *nome da tabela*;
 
     ## Aula 17 - Mudando o nome da tabela
+        - sqlite> alter table *nome antigo* rename to *novo nome*;
 
     ## Aula 18 - Vamos adicionar um campo na tabela
+        - alter table estudantes add *novo campo* *tipo do campo*; 
+        - pelo prompt, não é possível alterar a posição do campo, ele vai automaticamente ser a última coluna.
 
     ## Aula 19 - Exercícios - Lista 1
 
