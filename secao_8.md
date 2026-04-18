@@ -40,10 +40,39 @@
 
     ## Aula 63 - Entendendo as transações no banco de dados
         tudo que acontece dentro de uma transsção pode ser aceito ou revertido
+        exemplo: software de automação comercial, que controla clientes, estoque, fornecedores, vendas. faça uma venda com entrada + 3 parcelas
+        - lança no caixa a entrada R$100
+        - gera as parcelas de 3xR$50,00
+        - baixa o estoque -1
+        - histórico do cliente
+        - fim da transação
+        caso a transação dê algum erro durante o processo, tem que cancelar a transação completa e começar de novo
+        - a transação começa com o begin e termina com o commit (registra a transação), ou rollback (cancela a transação e inicia novamente)
 
     ## Aula 64 - Um exemplo de uso de transações
+        begin transaction;
+        insert into autor (id,nome) values (7,"Tiago");
+        rollback; (o rollback cancelou a transação e não vai inserir o autor)
+        begin transaction;
+        insert into autor(id,nome) values (8,"Thiago");
+        commit; (o commit finaliza a transação e o autor vai ser inserido na tabela)
 
     ## Aula 65 - O que é um OUTER JOIN?
+        -join = ligação entre as tabelas
+        -inner join = traz o resultado somente quando a condição é satisfeita de ambos os lados, ou seja, não vai trazer os títulos de livros que tem o estilo vazio
+        exemplo: dois jeitos de fazer 
+        SELECT l.titulo, e.nome
+        FROM livro l, estilo e
+        WHERE e.id = l.estilo_id;
+        maneira tradicional de trabalhar:
+        SELECT titulo, nome
+        FROM estilo INNER JOIN livro
+        ON estilo.id = livro.estilo_id;
+        - outer join = left outer join: mostra mesmo que esteja null
+        exemplo
+        SELECT titulo, nome
+        FROM livro LEFT OUTER JOIN estilo
+        ON estilo.id = livro.estilo_id; (traz todos os livros com estilos, mesmo livros com estilos vazios)
 
     ## Aula 66 - Trabalhando com TRIGGERS
 
