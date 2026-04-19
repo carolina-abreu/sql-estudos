@@ -75,9 +75,22 @@
         ON estilo.id = livro.estilo_id; (traz todos os livros com estilos, mesmo livros com estilos vazios)
 
     ## Aula 66 - Trabalhando com TRIGGERS
+        trigger: algo que acontece em determinado evento
+        podem ser disparador por enventos como delete, insert, update. Executam antes ou depois do evento. Usado em tabelas de auditoria, usado para rastrear mudanças.
 
-    ## Aula 67 -  Vamos criar uma trigger de AUDITORIA no Controle de Livros
-
+    ## Aula 67 -  Vamos criar uma trigger de AUDITORIA no Controle de Livros: exemplo do uso da trigger
+        - registrar sempre que um novo autor for cadastrado, guardar a data
+        - vamos criar a tabela auditoria
+        CREATE TABLE auditoria (autor_id int, data date, acao text);
+        - vamos criar a trigger de auditoria
+        CREATE TRIGGER auditoria AFTER INSERT ON autor
+        BEGIN
+            INSERT INTO auditoria (autor_id, data, acao) 
+            VALUES (new,id, datetime('now'), "Autor inserido");
+        END;
+        - para excluir a trigger: DROP TRIGGER 'nome da trigger';
+        - trigger impacta na velocidade das operações no banco de dados;
+        
     ## Aula 68 - Exercícios - Lista 9
 
     ## Aula 69 - Correção de exercícios

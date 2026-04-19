@@ -11,7 +11,7 @@
     ## Aula 47 - Tirando a média
         AVG - average (média)
         exemplo:
-        SELECT AVG(precovenda) "Média"
+        SELECT avg((precovenda) "Média"
         FROM livros;
 
     ## Aula 48 - Encontrando valores maiores e menores
@@ -34,7 +34,7 @@
           FROM editora
           GROUP BY estado
           HAVING count (*) < 30 (conta quantas vezes cada estado aparece, mas mostra somente os menores que )
-          
+
     ## Aula 50 - Exercícios Lista 7
 
     ## Aula 51 - Correção dos Exercícios 
